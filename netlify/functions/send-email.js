@@ -1,55 +1,50 @@
-// netlify/functions/send-email.js
 const nodemailer = require("nodemailer");
 
 exports.handler = async (event) => {
-  // Bloquer les requêtes qui ne sont pas POST
+
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
-      body: JSON.stringify({ message: "Méthode non autorisée" }),
+      body: "Méthode non autorisée",
     };
   }
 
   const { message } = JSON.parse(event.body);
 
-  // Validation basique
-  if (!email || !message) {
+  // validation
+  if (!message) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ message: "Email et message sont requis" }),
+      body: "Message requis",
     };
   }
 
-  // Configuration Gmail
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "razanakolonaelvinah@gmail.com",   // ton adresse gmail
-      pass: "pswj csvj nqhg odio",   // mot de passe d'application Gmail
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS_APP,
     },
   });
 
-  const mailOptions = {                  
-    to: process.env.GMAIL_USER,        // ton email (tu reçois le message)
-    subject: `Nouveau message de ${email}`,
-    html: `
-      <h3>Nouveau message depuis ton portfolio</h3>
-      <p><strong>Message :</strong></p>
-      <p>${message}</p>
-    `,
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
+    subject: "Nouveau message depuis portfolio",
+    text: message,
   };
 
   try {
     await transporter.sendMail(mailOptions);
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Email envoyé avec succès !" }),
+      body: "Email envoyé",
     };
   } catch (error) {
     console.error(error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Erreur lors de l'envoi de l'email" }),
+      body: "Erreur envoi email",
     };
   }
 };

@@ -1,31 +1,29 @@
 import axios from "axios";
 import { useState } from "react";
-import React from "react";
 import "./App.css";
 
 function App() {
-  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const sendMessage = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     try {
       await axios.post("/.netlify/functions/send-email", {
-        email,
         message,
       });
-      alert("Message envoyé !");  // ✅ CORRECTION 1 : était en dehors de la fonction
-      setEmail("");
+
+      alert("Message envoyé !");
       setMessage("");
     } catch (error) {
-      alert("Erreur lors de l'envoi. Réessaie !");
+      alert("Erreur lors de l'envoi !");
       console.error(error);
     } finally {
       setLoading(false);
     }
-  }; // ✅ CORRECTION 2 : accolade fermante déplacée ici (avant le return)
+  };
 
   return (
     <div>
