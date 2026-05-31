@@ -11,33 +11,34 @@ body {
 }
 
 /* ── HAMBURGER ── */
-.nav-toggle {
+button.nav-toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   background: transparent !important;
-  border: 1px solid var(--border) !important;
+  border: 2px solid #555 !important;
   border-radius: 6px !important;
-  cursor: pointer;
-  padding: 8px !important;
+  cursor: pointer !important;
+  padding: 8px 10px !important;
+  box-shadow: none !important;
+  transform: none !important;
+  width: auto !important;
+  height: auto !important;
   z-index: 1001;
-  box-shadow: none !important;
-  transform: none !important;
-  transition: border-color 0.3s ease !important;
 }
 
-.nav-toggle:hover {
-  border-color: var(--accent) !important;
+button.nav-toggle:hover {
   background: transparent !important;
+  border-color: #c9a96e !important;
   transform: none !important;
   box-shadow: none !important;
 }
 
-.nav-toggle span {
+button.nav-toggle span {
   display: block !important;
   width: 22px !important;
   height: 2px !important;
-  background: var(--text) !important;
+  background: #222 !important;
   border-radius: 2px !important;
   transition: all 0.3s ease !important;
 }
@@ -56,7 +57,7 @@ body {
     flex: 1;
   }
 
-  .nav-toggle {
+  button.nav-toggle {
     display: flex !important;
   }
 
@@ -65,7 +66,7 @@ body {
     width: 100%;
     flex-direction: column;
     padding: 12px 0 8px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid #ddd;
     margin-top: 12px;
   }
 
@@ -77,8 +78,9 @@ body {
     padding: 13px 4px;
     font-size: 14px;
     letter-spacing: 0.05em;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid #eee;
     margin-left: 0;
+    color: #222;
   }
 
   .navbar nav a::after {
