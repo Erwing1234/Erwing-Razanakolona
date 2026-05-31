@@ -5,6 +5,7 @@ import "./App.css";
 function App() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -28,18 +29,29 @@ function App() {
   return (
     <div>
 
-      {/* NAVBAR */}
-      <header className="navbar">
-        <h2 className="logo">Erwing RAZANAKOLONA</h2>
-        <nav>
-          <a href="#home">Accueil</a>
-          <a href="#about">Parcours</a>
-          <a href="#skills">Compétences</a>
-          <a href="#projects">Projets</a>
-          <a href="#goals">Objectifs</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+     {/* NAVBAR */}
+<header className="navbar">
+  <h2 className="logo">Erwing RAZANAKOLONA</h2>
+
+  <button
+    className="nav-toggle"
+    onClick={() => setMenuOpen(!menuOpen)}
+    aria-label="Menu"
+  >
+    <span style={{ transform: menuOpen ? 'rotate(45deg) translateY(7px)' : 'none' }}></span>
+    <span style={{ opacity: menuOpen ? 0 : 1 }}></span>
+    <span style={{ transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : 'none' }}></span>
+  </button>
+
+  <nav className={menuOpen ? 'open' : ''}>
+    <a href="#home" onClick={() => setMenuOpen(false)}>Accueil</a>
+    <a href="#about" onClick={() => setMenuOpen(false)}>Parcours</a>
+    <a href="#skills" onClick={() => setMenuOpen(false)}>Compétences</a>
+    <a href="#projects" onClick={() => setMenuOpen(false)}>Projets</a>
+    <a href="#goals" onClick={() => setMenuOpen(false)}>Objectifs</a>
+    <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+  </nav>
+</header>
 
       {/* HERO */}
       <section id="home" className="hero">
@@ -123,12 +135,12 @@ function App() {
 
         <div className="skills-grid">
           <div className="skill">HTML / CSS / JavaScript</div>
-          <div className="skill">Vue.js</div>
+          <div className="skill">Vue/React.JS</div>
           <div className="skill">PHP</div>
+          <div className="skill">Node.JS</div>
           <div className="skill">Python</div>
-          <div className="skill">C#</div>
           <div className="skill">MySQL / PostgreSQL</div>
-          <div className="skill">Java Desktop (NetBeans)</div>
+          <div className="skill">Java (NetBeans)</div>
           <div className="skill">Git & GitHub</div>
           <div className="skill">WAMP / VS Code</div>
           <div className="skill">Gestion de projet</div>
@@ -251,15 +263,15 @@ function App() {
 
         <form className="contact-form" onSubmit={sendMessage}>
 
-          {/* ✅ CORRECTION 3 : champ email manquant ajouté */}
+          {}
           <textarea
-            placeholder="Votre message..."
+            placeholder="Votre message et votre nom..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
           />
 
-          {/* ✅ CORRECTION 4 : bouton désactivé pendant l'envoi */}
+          {}
           <button type="submit" disabled={loading}>
             {loading ? "Envoi en cours..." : "Envoyer"}
           </button>
@@ -284,6 +296,6 @@ function App() {
 
     </div>
   );
-} // ✅ CORRECTION 5 : accolade fermante de la fonction App
+} 
 
-export default App; // ✅ CORRECTION 6 : export placé en dehors du return mais dans le fichier
+export default App; 
