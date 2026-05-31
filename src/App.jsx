@@ -177,14 +177,14 @@ function App() {
           </div>
 
           <div className="project-card">
-            <h3>Gestion des colis – Java Desktop</h3>
+            <h3>Gestion des colis </h3>
 
             <p>
-              Application desktop complète avec interface graphique,
+              Application web de gestion des colis complète avec interface graphique,
               CRUD colis/clients, PostgreSQL.
             </p>
 
-            <span>Java • NetBeans • PostgreSQL</span>
+            <span>PHP • PostgreSQL</span>
 
             <a
               href="https://github.com/Erwing1234/gestion_colis_web"
@@ -220,6 +220,24 @@ function App() {
 
             <a
               href="https://github.com/Erwing1234/generateur_LM"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voir sur GitHub
+            </a>
+          </div>
+          <div className="project-card">
+            <h3>Portfolio Personne </h3>
+
+            <p>
+            Site vitrine moderne avec interface responsive
+            et formulaire de contact intégré pour présenter mes projets et compétences.
+            </p>
+
+            <span>React •  Netlify</span>
+
+            <a
+              href="https://github.com/Erwing1234/Erwing-Razanakolona"
               target="_blank"
               rel="noopener noreferrer"
             >
