@@ -15,20 +15,31 @@ body {
   display: none;
   flex-direction: column;
   gap: 5px;
-  background: none;
-  border: none;
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px !important;
   z-index: 1001;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: border-color 0.3s ease !important;
+}
+
+.nav-toggle:hover {
+  border-color: var(--accent) !important;
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .nav-toggle span {
-  display: block;
-  width: 26px;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 2px;
-  transition: all 0.3s ease;
+  display: block !important;
+  width: 22px !important;
+  height: 2px !important;
+  background: var(--text) !important;
+  border-radius: 2px !important;
+  transition: all 0.3s ease !important;
 }
 
 /* ── MOBILE ── */
@@ -46,7 +57,7 @@ body {
   }
 
   .nav-toggle {
-    display: flex;
+    display: flex !important;
   }
 
   .navbar nav {
