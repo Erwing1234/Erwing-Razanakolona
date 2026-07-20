@@ -241,7 +241,7 @@ const [email, setEmail] = useState("");
 
     <div className="project-card">
     <div className="project-icon-area">
-  <img src="public/Capture d’écran 2026-07-17 214937.jpg" alt="" className="project-img" />
+  <img src="/Capture d’écran 2026-07-17 214937.jpg" alt="" className="project-img" />
 </div>
       <div className="project-meta">
         <span className="project-category">Gestion</span>
