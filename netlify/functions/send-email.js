@@ -9,13 +9,12 @@ exports.handler = async (event) => {
     };
   }
 
-  const { message } = JSON.parse(event.body);
+  const { name, email, subject, message } = JSON.parse(event.body);
 
-  // validation
-  if (!message) {
+  if (!name || !email || !message) {
     return {
       statusCode: 400,
-      body: "Message requis",
+      body: "Champs requis manquants",
     };
   }
 
@@ -30,8 +29,15 @@ exports.handler = async (event) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
-    subject: "Nouveau message depuis portfolio",
-    text: message,
+    subject: subject || "Nouveau message depuis portfolio",
+    html: `
+      <h3>Nouveau message depuis ton portfolio</h3>
+      <p><strong>Nom :</strong> ${name}</p>
+      <p><strong>Email :</strong> ${email}</p>
+      <p><strong>Sujet :</strong> ${subject || "Non précisé"}</p>
+      <p><strong>Message :</strong></p>
+      <p>${message}</p>
+    `,
   };
 
   try {
