@@ -16,6 +16,9 @@ const [email, setEmail] = useState("");
 
     try {
       await axios.post("/.netlify/functions/send-email", {
+        name,
+        email,
+        subject,
         message,
       });
 
