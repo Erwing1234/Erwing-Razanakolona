@@ -77,7 +77,7 @@ const [email, setEmail] = useState("");
 
           <div className="buttons">
             <a
-              href="public/CV RAZANAKOLONA.pdf"
+              href="/CV RAZANAKOLONA.pdf"
               className="btn outline"
               download
             >
@@ -88,7 +88,7 @@ const [email, setEmail] = useState("");
 
         <div className="hero-img">
           <img
-            src="public/4MzPVtqN.jpg"
+            src="/4MzPVtqN.jpg"
             alt="Erwing"
           />
         </div>
@@ -189,7 +189,7 @@ const [email, setEmail] = useState("");
 
     <div className="project-card">
     <div className="project-icon-area">
-  <img src="public/jj.jpg" alt="JIRAMA" className="project-img" />
+  <img src="/jj.jpg" alt="JIRAMA" className="project-img" />
 </div>
       <div className="project-meta">
         <span className="project-category">Gestion</span>
@@ -215,7 +215,7 @@ const [email, setEmail] = useState("");
 
     <div className="project-card">
     <div className="project-icon-area">
-  <img src="public/Capture d’écran 2026-07-17 215334.jpg" alt="" className="project-img" />
+  <img src="/Capture d’écran 2026-07-17 215334.jpg" alt="" className="project-img" />
 </div>
       <div className="project-meta">
         <span className="project-category">Logistique</span>
@@ -267,7 +267,7 @@ const [email, setEmail] = useState("");
 
     <div className="project-card">
     <div className="project-icon-area">
-  <img src="public/Capture d’écran 2026-07-20 143730.jpg" alt="" className="project-img" />
+  <img src="/Capture d’écran 2026-07-20 143730.jpg" alt="" className="project-img" />
 </div>
       <div className="project-meta">
         <span className="project-category">Outil</span>
@@ -293,7 +293,7 @@ const [email, setEmail] = useState("");
 
     <div className="project-card">
     <div className="project-icon-area">
-  <img src="public/Capture d’écran 2026-07-17 214800.jpg" alt="" className="project-img" />
+  <img src="/Capture d’écran 2026-07-17 214800.jpg" alt="" className="project-img" />
 </div>
       <div className="project-meta">
         <span className="project-category">E-commerce</span>
@@ -321,7 +321,7 @@ gérer les produits,les commandes des clients.</p>
 
     <div className="project-card">
     <div className="project-icon-area">
-  <img src="public/Capture d’écran 2026-07-20 145109.jpg" alt="" className="project-img" />
+  <img src="/Capture d’écran 2026-07-20 145109.jpg" alt="" className="project-img" />
 </div>
       <div className="project-meta">
         <span className="project-category">Web</span>
