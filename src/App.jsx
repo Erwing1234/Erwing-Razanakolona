@@ -155,16 +155,16 @@ const [email, setEmail] = useState("");
       <div className="skill-card-header backend">
         <span>⚙ Backend</span>
       </div>
-      <div className="skill-item"><span>PHP</span><span className="badge inter">Avancé</span></div>
+      <div className="skill-item"><span>PHP</span><span className="badge avance">Avancé</span></div>
       <div className="skill-item"><span>Node.js</span><span className="badge inter">Intermédiaire</span></div>
       
       <div className="skill-item"><span>Java (NetBeans)</span><span className="badge inter">Intermédiaire</span></div>
-      <div className="skill-item"><span>Python</span><span className="badge inter">Intermédiaire</span></div>
+      <div className="skill-item"><span>Python</span><span className="badge debutant">Débutant</span></div>
     </div>
 
     <div className="skill-card">
       <div className="skill-card-header database">
-        <span>🗄 Base de données</span>
+        <span> Base de données</span>
       </div>
       <div className="skill-item"><span>MySQL</span><span className="badge avance">Avancé</span></div>
       <div className="skill-item"><span>PostgreSQL</span><span className="badge inter">Intermédiaire</span></div>
@@ -175,7 +175,7 @@ const [email, setEmail] = useState("");
         <span> Outils</span>
       </div>
       <div className="skill-item"><span>Git & GitHub</span><span className="badge avance">Avancé</span></div>
-      <div className="skill-item"><span>WAMP / VS Code</span><span className="badge inter">Avancé</span></div>
+      <div className="skill-item"><span>WAMP / VS Code</span><span className="badge avance">Avancé</span></div>
       <div className="skill-item"><span>Gestion de projet</span><span className="badge inter">Intermédiaire</span></div>
     </div>
 
@@ -196,7 +196,7 @@ const [email, setEmail] = useState("");
 </div>
       <div className="project-meta">
         <span className="project-category">Gestion</span>
-        <span className="badge-acad">Stage</span>
+        <span className="badge-stage">Stage</span>
         <span className="project-year">2025</span>
       </div>
       <div className="project-body">
@@ -274,7 +274,7 @@ const [email, setEmail] = useState("");
 </div>
       <div className="project-meta">
         <span className="project-category">Outil</span>
-        <span className="badge-acad">Personnel</span>
+        <span className="badge-perso">Personnel</span>
         <span className="project-year">2025</span>
       </div>
       <div className="project-body">
@@ -300,7 +300,7 @@ const [email, setEmail] = useState("");
 </div>
       <div className="project-meta">
         <span className="project-category">E-commerce</span>
-        <span className="badge-acad">Personnel</span>
+        <span className="badge-perso">Personnel</span>
         <span className="project-year">2026</span>
       </div>
       <div className="project-body">

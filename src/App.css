@@ -346,6 +346,14 @@ button.nav-toggle span {
   color: #94a3b8;
   margin-left: auto;
 }
+.badge-stage {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #855b02;
+  color: #fbbf24;
+  font-weight: 500;
+}
 
 .badge-acad {
   font-size: 11px;
