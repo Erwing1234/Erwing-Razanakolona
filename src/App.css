@@ -61,49 +61,8 @@ button.nav-toggle span {
   transition: all 0.3s ease !important;
 }
 
+/* ── MOBILE ── */
 @media (max-width: 768px) {
-  /* HERO */
-  .hero {
-    flex-direction: column-reverse;
-    padding: 100px 6% 40px;
-    min-height: auto;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .hero img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    animation: none;
-  }
-
-  .hero h1 {
-    font-size: 1.4rem;
-    line-height: 1.4;
-  }
-
-  .hero h3 {
-    font-size: 1rem;
-  }
-
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-
-  .btn.outline {
-    width: auto;
-    padding: 10px 20px;
-  }
-
-  /* NAVBAR */
   .navbar {
     flex-wrap: wrap;
     flex-direction: row;
@@ -145,6 +104,46 @@ button.nav-toggle span {
   .navbar nav a::after {
     display: none;
   }
+  .hero {
+    flex-direction: column-reverse;
+    padding: 140px 10% 40px;
+    min-height: auto;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .hero img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    animation: none;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+  .hero h3 {
+    font-size: 1rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .btn.outline {
+    width: auto;
+    padding: 10px 20px;
+  }
+
 }
 
 /* NAVBAR */
