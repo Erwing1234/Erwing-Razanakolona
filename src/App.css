@@ -105,18 +105,18 @@ button.nav-toggle span {
     display: none;
   }
   .hero {
-    flex-direction: column-reverse;
-    padding: 140px 10% 40px;
+    flex-direction: column;
+    padding: 100px 6% 40px;
     min-height: auto;
     text-align: center;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .hero img {
-    width: 320px;
+    width: 280px;
     height: 320px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 16px;
     animation: none;
   }
 
