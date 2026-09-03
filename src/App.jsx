@@ -64,7 +64,7 @@ const SKILL_CATEGORIES = [
     skills: [
       { name: "Node.js", icon: `${DEVICON}/nodejs/nodejs-original.svg` },
       { name: "PHP", icon: `${DEVICON}/php/php-original.svg` },
-      { name: "Java (JSP)", icon: `${DEVICON}/java/java-original.svg` },
+      { name: "Java", icon: `${DEVICON}/java/java-original.svg` },
     ],
   },
   {
