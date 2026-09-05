@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import "./App.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
-/* ── ICONES (SVG, pas d'emoji) ── */
 const IconHome = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
 );
@@ -11,6 +13,12 @@ const IconGrad = () => (
 );
 const IconLayers = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+);
+const IconBriefcase = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+  </svg>
 );
 const IconGrid = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
@@ -64,7 +72,10 @@ const SKILL_CATEGORIES = [
     skills: [
       { name: "Node.js", icon: `${DEVICON}/nodejs/nodejs-original.svg` },
       { name: "PHP", icon: `${DEVICON}/php/php-original.svg` },
-      { name: "Java (JSP)", icon: `${DEVICON}/java/java-original.svg` },
+      { name: "Java" , icon: `${DEVICON}/java/java-original.svg` },
+      { name: "TypeScript", icon: `${DEVICON}/typescript/typescript-original.svg` },
+    { name: "Express", icon: `${DEVICON}/express/express-original.svg` },
+    { name: "Nest", icon: `${DEVICON}/nestjs/nestjs-original.svg` },
     ],
   },
   {
@@ -120,6 +131,7 @@ function App() {
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
   const [email, setEmail] = useState("");
+  const [showAll, setShowAll] = useState(false);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -146,9 +158,19 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: 'ease-in-out',
+    });
+  }, []);
+
   const navLinks = [
     { id: "home", label: "Accueil", icon: <IconHome /> },
     { id: "about", label: "Parcours", icon: <IconGrad /> },
+    { id: "experience", label: "Expérience", icon: <IconBriefcase /> }, 
     { id: "skills", label: "Compétences", icon: <IconLayers /> },
     { id: "projects", label: "Projets", icon: <IconGrid /> },
     { id: "goals", label: "Objectifs", icon: <IconTarget /> },
@@ -199,7 +221,7 @@ function App() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="hero">
+      <section id="home" className="hero" data-aos="fade-up">
         <div className="hero-glow glow-green"></div>
         <div className="hero-glow glow-blue"></div>
         <div className="hero-glow glow-red"></div>
@@ -261,7 +283,7 @@ function App() {
       </section>
 
       {/* ABOUT / PARCOURS */}
-      <section id="about" className="section about-section">
+      <section id="about" className="section about-section"  data-aos="fade-right">
         <div className="section-heading">
           <span className="section-heading-icon"><IconGrad /></span>
           <h2>Mon Parcours</h2>
@@ -312,6 +334,92 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* EXPERIENCE PROFESSIONNELLE */}
+<section id="experience" className="section experience-section"  data-aos="zoom-in">
+  <div className="section-heading">
+    <span className="section-heading-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+      </svg>
+    </span>
+    <h2>Expérience Professionnelle</h2>
+  </div>
+
+  {/* STATISTIQUES */}
+  <div className="stats-grid">
+    <div className="stat-card">
+      <span className="stat-number">3</span>
+      <span className="stat-label">Années d'études</span>
+      <span className="stat-desc">à l'ENI Fianarantsoa</span>
+    </div>
+    <div className="stat-card">
+      <span className="stat-number">9+</span>
+      <span className="stat-label">Projets réalisés</span>
+      <span className="stat-desc">Académiques & personnels</span>
+    </div>
+    
+    <div className="stat-card">
+      <span className="stat-number">5+</span>
+      <span className="stat-label">Technologies</span>
+      <span className="stat-desc">Maîtrisées</span>
+    </div>
+  </div>
+
+  {/* STAGE JIRAMA */}
+  <div className="experience-timeline">
+    <div className="experience-card">
+      <div className="experience-header">
+        
+        <div className="experience-title">
+          <h3>Stagiaire Développeur</h3>
+          <h4>JIRAMA</h4>
+          <span className="experience-date">2025</span>
+        </div>
+      </div>
+      
+      <div className="experience-body">
+        <div className="experience-description">
+          <p>
+            Stage effectué au sein de la direction régionale de la JIRAMA Antsirabe.
+            Développement d'une application web de gestion des paiements des factures.
+          </p>
+        </div>
+
+        <div className="experience-missions">
+          <h4>Missions réalisées :</h4>
+          <ul>
+            <li>
+              <span className="mission-icon">✓</span>
+              Conception et développement d'une application web de gestion des paiements
+            </li>
+            <li>
+              <span className="mission-icon">✓</span>
+              Consultation et paiement des factures en ligne
+            </li>
+            <li>
+              <span className="mission-icon">✓</span>
+              Création d'un espace utilisateur avec authentification
+            </li>
+            <li>
+              <span className="mission-icon">✓</span>
+              Mise en place d'un dashboard graphique pour le suivi des paiements
+            </li>
+            <li>
+              <span className="mission-icon">✓</span>
+              Gestion des données avec MySQL
+            </li>
+          </ul>
+        </div>
+
+        
+
+        
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* SKILLS */}
       <section id="skills" className="section dark">
@@ -427,7 +535,7 @@ function App() {
               <h3>Gestion du cité universitaire</h3>
               <p>Système de réservation d'une chambre dans un cité universitaire, gestion des étudiants, interface administrateur</p>
               <div className="project-tags">
-                <span>React</span><span>Node.js</span><span>MySQL</span>
+                <span>React</span><span>Express.js</span><span>MySQL</span>
               </div>
               <div className="project-status">
                 <span>⑂ Public</span>
@@ -464,6 +572,33 @@ function App() {
             </div>
           </div>
 
+         
+
+          <div className="project-card">
+            <div className="project-icon-area">
+              <img src="/jeued.jpeg" alt="Jeu éducatif" className="project-img" />
+            </div>
+            <div className="project-meta">
+              <span className="project-category">Mobile</span>
+              <span className="badge-acad">Academique</span>
+              <span className="project-year">2026</span>
+            </div>
+            <div className="project-body">
+              <h3>Application mobile d'un jeu éducatif</h3>
+              <p>Jeu éducatif basé sur la reconnaissance d’objets réels : une application interactive qui utilise la caméra d’un smartphone pour identifier des objets physiques dans l’environnement réel.</p>
+              <div className="project-tags">
+                <span>Flutter</span><span>SQLite</span>
+              </div>
+              <div className="project-status">
+                <span>⑂ Public</span>
+                <span>✓ Terminé</span>
+              </div>
+              <div className="project-actions">
+                <a href="https://github.com/Erwing1234/Ed_game" target="_blank" rel="noopener noreferrer" className="btn-github">⊙ GitHub</a>
+              </div>
+            </div>
+          </div>
+
           <div className="project-card">
             <div className="project-icon-area">
               <img src="/Capture d’écran 2026-07-17 214800.jpg" alt="E-commerce avions miniatures" className="project-img" />
@@ -489,31 +624,78 @@ function App() {
             </div>
           </div>
 
-          <div className="project-card">
-            <div className="project-icon-area">
-              <img src="/Capture d’écran 2026-07-20 145109.jpg" alt="Portfolio" className="project-img" />
-            </div>
-            <div className="project-meta">
-              <span className="project-category">Web</span>
-              <span className="badge-perso">Personnel</span>
-              <span className="project-year">2026</span>
-            </div>
-            <div className="project-body">
-              <h3>Portfolio personnel</h3>
-              <p>Site vitrine moderne, responsive, avec formulaire de contact intégré pour présenter mes projets et compétences.</p>
-              <div className="project-tags">
-                <span>React</span><span>Netlify</span>
-              </div>
-              <div className="project-status">
-                <span>⑂ Public</span>
-                <span>✓ En cours</span>
-              </div>
-              <div className="project-actions">
-                <a href="https://github.com/Erwing1234/Erwing-Razanakolona" target="_blank" rel="noopener noreferrer" className="btn-github">⊙ GitHub</a>
-              </div>
-            </div>
-          </div>
+          {/* ── 3 DERNIERS CACHÉS ── */}
+    <div className={`project-card ${showAll ? "project-visible" : "project-hidden"}`}>
+      <div className="project-icon-area">
+        <img src="/gestioncli.jpeg" alt="Gestion des clients" className="project-img" />
+      </div>
+      <div className="project-meta">
+        <span className="project-category">Mobile</span>
+        <span className="badge-acad">Académique</span>
+        <span className="project-year">2026</span>
+      </div>
+      <div className="project-body">
+        <h3>Gestion des clients</h3>
+        <p>Application mobile elle permet de gérer les informations des clients de manière simple et efficace.</p>
+        <div className="project-tags"><span>Java</span><span>SQLite</span></div>
+        <div className="project-status"><span>⑂ Public</span><span>✓ Terminé</span></div>
+        <div className="project-actions">
+          <a href="" target="_blank" rel="noopener noreferrer" className="btn-github">⊙ GitHub</a>
         </div>
+      </div>
+    </div>
+
+    <div className={`project-card ${showAll ? "project-visible" : "project-hidden"}`}>
+      <div className="project-icon-area">
+        <img src="public/Capture d’écran 2026-09-05 160518.jpg" alt="Gestion transfert argent" className="project-img" />
+      </div>
+      <div className="project-meta">
+        <span className="project-category">Web</span>
+        <span className="badge-acad">Académique</span>
+        <span className="project-year">2026</span>
+      </div>
+      <div className="project-body">
+        <h3>Gestion de transfert d'argent</h3>
+        <p>Application web gestion de transfert d'argent en ligne elle permet à un opérateur de gérer les transferts d'argent entre clients situés dans différents pays.</p>
+        <div className="project-tags"><span>JSP</span><span>MySQL</span></div>
+        <div className="project-status"><span>⑂ Public</span><span>✓ Terminé</span></div>
+        <div className="project-actions">
+          <a href="" target="_blank" rel="noopener noreferrer" className="btn-github">⊙ GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div className={`project-card ${showAll ? "project-visible" : "project-hidden"}`}>
+      <div className="project-icon-area">
+        <img src="public/Capture d’écran 2026-07-20 145109.jpg" alt="Portfolio" className="project-img" />
+      </div>
+      <div className="project-meta">
+        <span className="project-category">Web</span>
+        <span className="badge-perso">Personnel</span>
+        <span className="project-year">2026</span>
+      </div>
+      <div className="project-body">
+        <h3>Portfolio personnel</h3>
+        <p>Site vitrine moderne, responsive, avec formulaire de contact intégré pour présenter mes projets et compétences.</p>
+        <div className="project-tags"><span>React</span><span>Netlify</span></div>
+        <div className="project-status"><span>⑂ Public</span><span>✓ En cours</span></div>
+        <div className="project-actions">
+          <a href="https://github.com/Erwing1234/Erwing-Razanakolona" target="_blank" rel="noopener noreferrer" className="btn-github">⊙ GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  {/* BOUTON VOIR PLUS */}
+  <div className="voir-plus-wrapper">
+    <button className="btn-voir-plus" onClick={() => setShowAll(!showAll)}>
+      {showAll ? "Voir moins ▲" : "Voir plus ▼"}
+    </button>
+  </div>
+
+
+          
       </section>
 
       {/* GOALS */}
@@ -549,7 +731,7 @@ function App() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="section dark">
+      <section id="contact" className="section dark" data-aos="fade-up">
         <div className="section-heading center-heading">
           <span className="section-heading-icon"><IconMail /></span>
           <h2>Contactez-moi</h2>
@@ -558,7 +740,7 @@ function App() {
 
         <div className="contact-wrapper">
           {/* FORMULAIRE */}
-          <div className="contact-form-box">
+          <div className="contact-form-box" data-aos="fade-up">
             <form onSubmit={sendMessage}>
               <div className="form-group">
                 <label>Nom complet</label>
@@ -611,7 +793,7 @@ function App() {
           </div>
 
           {/* INFOS */}
-          <div className="contact-info-box">
+          <div className="contact-info-box" data-aos="fade-up">
             <h3>Informations</h3>
             <p>N'hésitez pas à me contacter pour discuter de vos projets</p>
 
@@ -709,7 +891,7 @@ function App() {
         </div>
 
         <div className="footer-bottom">
-          © {new Date().getFullYear()} Erwing RAZANAKOLONA. Tous droits réservés.
+           {new Date().getFullYear()} Erwing RAZANAKOLONA. Tous droits réservés.
         </div>
       </footer>
     </div>
