@@ -647,7 +647,7 @@ function App() {
 
     <div className={`project-card ${showAll ? "project-visible" : "project-hidden"}`}>
       <div className="project-icon-area">
-        <img src="public/Capture d’écran 2026-09-05 160518.jpg" alt="Gestion transfert argent" className="project-img" />
+        <img src="/Capture d’écran 2026-09-05 160518.jpg" alt="Gestion transfert argent" className="project-img" />
       </div>
       <div className="project-meta">
         <span className="project-category">Web</span>
@@ -667,7 +667,7 @@ function App() {
 
     <div className={`project-card ${showAll ? "project-visible" : "project-hidden"}`}>
       <div className="project-icon-area">
-        <img src="public/Capture d’écran 2026-07-20 145109.jpg" alt="Portfolio" className="project-img" />
+        <img src="/Capture d’écran 2026-07-20 145109.jpg" alt="Portfolio" className="project-img" />
       </div>
       <div className="project-meta">
         <span className="project-category">Web</span>
